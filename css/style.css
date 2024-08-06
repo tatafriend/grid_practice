@@ -1,0 +1,100 @@
+:root{
+    --main-radius:0.5rem;
+}
+/* 創建圓角的變量 */
+.container{
+display: grid;
+height: 100vh;
+grid-template-columns: 15rem 1fr 1fr 1fr 1fr 1fr;
+grid-template-rows: 4rem 1fr 1fr 1fr;
+grid-template-areas:"nav nav nav nav nav nav"
+"sidebar text text text text text"
+"sidebar content1 content2 content3 content4 content5"
+"sidebar footer footer footer footer footer";
+
+grid-gap:0.5rem;
+font-weight: 800;
+font-size: 1rem;
+text-align: center;
+}
+.container *{
+    padding-top: 1rem;
+}
+
+/* 設置rem會跟著頁面字級大小去變化 自適應能力較強 */
+nav{
+    background-color: orange;
+    grid-area: nav;
+    border-radius: var(--main-radius);
+}
+.text{
+background-color: rgb(142, 244, 244);
+grid-area:text;
+border-radius: var(--main-radius);
+}
+.siderbar{
+    background-color: green;
+    grid-area:sidebar;
+    border-radius: var(--main-radius);
+
+}
+.card{
+background-color: rgb(39, 97, 222);
+border-radius: var(--main-radius);
+}
+#content1{
+    grid-area: content1;
+
+}
+#content2{
+    grid-area: content2;
+}
+#content3{
+    grid-area: content3;
+}
+#content4{
+    grid-area: content4;
+}
+#content5{
+    grid-area: content5;
+}
+footer{
+    background-color: skyblue;
+    grid-area: footer;
+    border-radius: var(--main-radius);
+}
+/* 媒體查詢 */
+@media only screen and (max-width: 80rem){
+    .container{
+        grid-template-columns: 15rem 1fr 1fr;
+        grid-template-rows: 4rem 1fr 1fr 1fr 1fr;
+        grid-template-areas:"nav nav nav"
+        "sidebar text text "
+        "sidebar content1 content2"
+        "sidebar content3 content4"
+        "sidebar footer footer";
+    }
+    #content5{
+        display: none;
+    }       
+}
+@media only screen and (max-width: 40rem){
+    .container{
+        grid-template-columns: 1fr ;
+        grid-template-rows: 4rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas:"nav"
+        "sidebar"
+        "text"
+        "content1"
+        "content2"
+        "content3"
+        "content4"
+        "content5"
+        "footer";
+    }
+    #content5{
+        display: initial;
+    }   
+}
+
+    
